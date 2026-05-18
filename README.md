@@ -33,9 +33,7 @@ GitTfsAuthors --tfs-server-uri http://tfs:8080/tfs --authors=output.txt --sort
 
 1. EnsureAuthenticated fails with TF31002 (HTTP 404 not found error) on first run
 
-Symptom: the tool exits immediately with a TeamFoundationServiceUnavailableException / TF31002, and the inner exception is an HTTP 404. The TFS server URL is correct and reachable in a browser.
-
-Cause: the current Windows session has no cached credential for the TFS host, so WinHTTP cannot perform silent NTLM authentication. The TFS client SDK reports this as TF31002 rather than an auth error.
+Symptom: The tool exits immediately with a TeamFoundationServiceUnavailableException / TF31002, and the inner exception is an HTTP 404. The TFS server URL is correct and reachable in a browser.
 
 ```
 Example error:
@@ -48,7 +46,9 @@ Azure DevOps Server Url: http://tfs:8080/tfs/defaultcollection
 - The password has expired or is incorrect.
 ```
 
-Fix: open the TFS web access URL (e.g. http://tfs:8080/tfs) in a browser as the same Windows user that will run the tool, and sign in if prompted. Re-run the tool from the same session.
+Cause: The current Windows session has no cached credential for the TFS host, so WinHTTP cannot perform silent NTLM authentication. The TFS client SDK reports this as TF31002 rather than an auth error.
+
+Fix: Open the TFS web access URL (e.g. http://tfs:8080/tfs) in a browser as the same Windows user that will run the tool, and sign in if prompted. Re-run the tool from the same session.
 
 2. The output text is not updated or is empty
 
