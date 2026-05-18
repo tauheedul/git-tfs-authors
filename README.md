@@ -50,12 +50,12 @@ Cause: The current Windows session has no cached credential for the TFS host, so
 
 Fix: Open the TFS web access URL (e.g. http://tfs:8080/tfs) in a browser as the same Windows user that will run the tool, and sign in if prompted. Re-run the tool from the same session.
 
-2. The output text is not updated or is empty
+2. Output file is empty or missing domain users
 
 Symptom: The script completes but the output text is blank or some users are absent.
 
-Fix: Re-run using the attribute -k (or --keep-empty-email) to include accounts that have no email address recorded in TFS. By default these are filtered out. Confirm also that the current TFS user has read access to the Project Collection if the output is blank.
+Fix: Confirm that the current TFS user has read access to the Project Collection if the output is blank, and re-run using the attribute -k (or --keep-empty-email) to include accounts that have no email address recorded in TFS. By default entries without emails are filtered out.
 
 ## Notes
 
-For use with Team Foundation Server or Azure DevOps Server (on-premise). Not compatible with Azure DevOps Services.
+For use with Team Foundation Server or Azure DevOps Server (on-premise). Not compatible with Azure DevOps Services as the underlying identity API (IGroupSecurityService) is on-premise only.
