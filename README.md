@@ -58,4 +58,4 @@ Fix: Re-run using the attribute -k (or --keep-empty-email) to include accounts t
 
 ## Notes
 
-For use with Team Foundation Server or Azure DevOps Server (on-premise). Not compatible with Azure DevOps Services — the underlying IGroupSecurityService API is not exposed in the cloud product.
+For use with Team Foundation Server or Azure DevOps Server (on-premise). Not compatible with Azure DevOps Services.
